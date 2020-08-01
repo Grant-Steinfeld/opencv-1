@@ -1,59 +1,13 @@
-# Modern Python3 Boilerplate with tooling
+# OpenCV python experiments
 
-This is a template to start a python project using a Test Driven Development (TDD) approach
 
-## How to use this repo?
-
-a) FastTrack: Just clone and use the master branch to get started right away.
-
-> Pro tip: Use the Green `Use this template` button to fork this repo to your github account and build your awesome Python3 application based of that.  Note this will only fork the `master` branch.
-
-b) LearningTrack: Clone this repo then progressively do a git checkout on all the branhes in their numerical sort order
-
-i.e.
-
-```bash
-# clone this repo
-git clone https://github.com/Grant-Steinfeld/python-starter.git
-
-#fetch all remote branches
-git fetch --all
-
-# start at 001 - setup directory structures and essential scaffolding
-git checkout 001-setup-tooling
-
-# learn about python virtual environments and in particular the awesome alternative to venv, enter Pipenv!
-git checkout 002-pipenv
-
-# setup Pytest testing framework, really the best option when testing Python, much better than the built in unittest library
-git checkout 003-pytest
-
-# setup linters and formatters - introducing Black, Black-Bugbear and Prettier
-git checkout 004-style-tools
-
-# setup python logging with standard python logging library
-git checkout 005b-logger
-
-# setup git pre commit hooks to prevent commiting and hence pushing incorrect syntax and poor formatting to git
-git checkout 005-git-pre-commit-hook
-
-# start to write tests first and get on your way to been an awesome TDD developer!
-git checkout 006-start-tdd
-
-# deep dive into mocks in pytest by learning howto use the Monkey Patch technique!
-git checkout 007-monkeypatch
-
-# after all said and done, all these branches rollup to the master branch
-git checkout master
-
-```
 
 ## Install the pre-requisites
 
 1. Python version 3
 1. Pipenv - Python virtual environment
 
-## Installation steps
+## Installation steps = windows 10
 
 ### 1. Python3
 
@@ -63,24 +17,14 @@ Make sure you have Python installed and it's availible from your command line. Y
 python --version
 ```
 
-You shoud get some output like `3.6.2` If you don't have this version of Python, please install the latest `3.x` version.
+You shoud get some output like `3.8` If you don't have this version of Python, please install the latest `3.x` version.
 
-To install python 3 on a Mac
 
-```sh
-brew install python3
-```
-
-<details><summary><strong>Installation of Python3 on other platforms</strong></summary>
-To [install Python3 on RHEL](https://developers.redhat.com/blog/2018/08/13/install-python3-rhel/)
-
-To [install Python3 on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-18-04-server)
 
 To [install Python3 on Windows](https://phoenixnap.com/kb/how-to-install-python-3-windows)
 
 To install Python on any other platform take a look at the [Installing Python](https://docs.python-guide.org/starting/installation/) section of **_The Hitchhikers Guide to Python_** or refer to [python.org](http://python.org)
 
-</details>
 
 ### 2. Pipenv - Python virtual environment
 
@@ -92,61 +36,28 @@ pipenv --version
 
 You should see something like `version 2018.11.26` if not please setup the latest version of pipenv as follows.
 
-To install pipenv on a Mac using brew
 
-```sh
-brew install pipenv
-```
 
-<details><summary><strong>Installation of Pipenv on other platforms</strong></summary>
-
-> If you have a working installation of pip, and maintain certain “toolchain” type Python modules as global utilities in your user environment, pip user installs allow for installation into your home directory. Note that due to interaction between dependencies, you should limit tools installed in this way to basic building blocks for a Python workflow like virtualenv, pipenv, tox, and similar software.
 
 To install pipenv on anyplatform with `pip`
 
 ```sh
-pip install --user pipenv
 
-#or
-# todo: validate this
 python3 -m pip install pipenv
 
 ```
 
 For more detailed instruction [see here](https://pipenv-fork.readthedocs.io/en/latest/install.html#installing-pipenv)
 
-</details>
 
 It is a best practice to use use Python virtual environments to isolate project-specific dependencies and create reproducible environments.
 
-<details><summary><strong>Read more about Pipenv and Virtual Environments</strong></summary>
-
-### Pipenv Features
-
-- Pipenv is a production-ready tool that aims to bring the best of all packaging worlds to the Python world. It harnesses Pipfile, pip, and virtualenv into one single command.
-
-- Enables truly **_deterministic builds_**, while specifying only what is needed.
-
-- With pipenv you no longer need to use `pip` and `venv` separately.
-
-* Setting a virtual environment to separate each project from affecting other projects and the rest of your operating system's a good idea. You may be making changes in your virtual environment that could have unintended consequences.
-
-Learn more about Pipenv [here](https://pipenv-fork.readthedocs.io/en/latest/)
-
-</details>
 
 ### Intializing a `pipenv` Python Virtual Environment
 
 How does one setup a Python Virtual Environment using `pipenv`?
 
-#### What is a virutal env
 
-It's a copy of a physically installed version of python already have, so say you have python3 install via brew or some other method, you can find this by typing
-
-```sh
-which python3
-echo '/usr/local/bin/python3'
-```
 
 #### You may be asking yourself where your new virtual environment is stored?
 
@@ -154,12 +65,7 @@ Ordinarilly, by default, the `pipenv` virutal enviroments is written to a global
 
 So never fear!
 
-#### unix/mac
-```sh
 
-export PIPENV_VENV_IN_PROJECT=1
-# save this line to your ~/.bashrc or ~/.zshrc or equivalent
-```
 
 #### PowerShell on Windows 10
 ```powershell
@@ -173,16 +79,23 @@ At your command line `cd` to the `root directory` of your application
 
 ```sh
 #install 
-pipenv install --three
+pipenv install
 ```
 
-You should now confirm the new local to your project, `Pipenv` Python Virtual Environment by output similar to this:
+You should now confirm the new pipenv python 3 virtual env in this project
 
-![check with pipenv](./doc/images/pipenv-install-three.png)
+```sh
+$ dir
 
-So great! Now pipenv created a virtual environment and created a `Pipfile` and a `Pipfile.lock`
+.venv
+doc
+...
+```
 
-Check!
+
+
+
+The `pipenv` virtual environment should be running confirm by:
 
 ```sh
 pipenv check
@@ -192,17 +105,13 @@ Output should confirm all is good!
 
 ![check with pipenv](./doc/images/pipenv-check.png)
 
-You can also confirm the virtual environment is setup by confirming a new file called `Pipfile` exists at the root directory.
+To exit the `Pipenv` Python Virtual environment simply type `exit`
 
-Even though the `pipenv` virtual environment is setup, you still need to **_activate_** it. This is simply done by running:
-
+To return to the pipenv venv shell type:
 ```sh
 pipenv shell
 ```
 
-![activate pipenv](./doc/images/pipenv-activate-shell.png)
-
-To exit the `Pipenv` Python Virtual environment simply type `exit`
 
 ### Setting up tooling for Testing
 

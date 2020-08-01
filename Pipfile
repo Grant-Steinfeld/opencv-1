@@ -5,16 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
-flake8 = "*"
-black = "==19.10b0"
-pre-commit = "*"
-flake8-bugbear = "*"
+
 
 [packages]
+flask = "*"
 
-[requires]
-python_version = "3.7"
 
-[scripts]
-# Install the pre-commit hook
-setup_dev = "sh -c \"pre-commit install\""
