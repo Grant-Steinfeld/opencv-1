@@ -1,3 +1,4 @@
+[![Grant-Steinfeld](https://circleci.com/gh/Grant-Steinfeld/opencv-1.svg?style=svg)](https://grantsteinfeld.com/)
 # OpenCV 
 ## python experiments
 
@@ -80,7 +81,11 @@ At your command line `cd` to the `root directory` of your application
 
 ```sh
 #install 
+pipenv --three
+
+# or use current version (3)
 pipenv install
+
 ```
 
 You should now confirm the new pipenv python 3 virtual env in this project
@@ -170,17 +175,7 @@ To install these:
 pipenv install --dev flake8 black==19.10b0
 ```
 
-### Version Control Integration - black + flake8 with git pre-commit hooks
 
-Git hook scripts are useful for identifying simple issues before submission to code review.
-
-<details><summary><strong>Learn more about pre-commit</strong></summary>
-
-> "... We run our hooks on every commit to automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements. By pointing these issues out before code review, this allows a code reviewer to focus on the architecture of a change while not wasting time with trivial style nitpicks."
-
-[quote from](https://pre-commit.com/)
-
-</details>
 
 Add new python packages:
 
@@ -189,44 +184,13 @@ pipenv install --dev pre-commit
 pipenv install --dev flake8-bugbear
 ```
 
-#### add [scripts] block to pipfile for pre-commit hook
-
-```bash
-[scripts]
-# Install the pre-commit hook
-setup_dev = "sh -c \"pre-commit install\""
-```
-
-Add a `.pre-commit-config.yaml` file.
-[Here is the contents](./.pre-commit-config.yaml)
-
-#### Setup the pre-commit hooks
+## CI/CD
+### create requirements.txt
 
 ```sh
-pipenv run setup_dev
-```
+ pipenv lock -r > requirements.txt
+ ```
 
-Ready? Time to check git pre-commit hook works as expected!
-
-run:
-
-```sh
-git commit README.md -m "test commit"
-```
-
-> TIP! If this is the first time you run this, it will take 5-9 minutes depending on your local laptop or workstation's cpu/RAM horsepower.
-
-You should see something like this output in your terminal window.
-
-![pre-commit hook runs for the first time](./doc/images/pre-commit-hook-first-time-output.jpg)
-
-Yay!!!
-
-After you've run pre-commit the first time, subsequent commit's will be `fast` ( seconds ).
-
-The output is less verbose and like I said, it will be much much faster!
-
-![pre-commit hook running thereafter](./doc/images/pre-commit-hook-normal-run.png)
 
 ## Logging
 
