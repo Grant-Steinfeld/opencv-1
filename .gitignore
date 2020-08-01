@@ -1,0 +1,12 @@
+scripts/
+*.DS_Store
+*.pyc
+*.egg-info
+build/
+dist/
+.*.swp
+.tox/
+Pipfile.lock
+scratch*
+*.psd
+.venv/
