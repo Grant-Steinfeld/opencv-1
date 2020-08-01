@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Grant-Steinfeld/opencv-1.svg?branch=master)](https://travis-ci.com/Grant-Steinfeld/opencv-1)
+
 # OpenCV python experiments
 
 
