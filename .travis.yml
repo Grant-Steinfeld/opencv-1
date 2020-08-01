@@ -1,9 +1,0 @@
-language: python
-install: "make"
-script:
-  - make ci
-cache: pip
-jobs:
-  include:
-    - stage: test
-      python: '3.8'
